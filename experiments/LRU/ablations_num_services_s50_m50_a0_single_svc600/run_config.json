@@ -1,0 +1,70 @@
+{
+  "name": "LRU/ablations_num_services_s50_m50_a0_single_svc600",
+  "results_root": "experiments",
+  "setup": {
+    "vol_name": "",
+    "wandb_key": "***REDACTED***",
+    "python_version": "3.12",
+    "wandb_model_id": "google_gemma-4-26b-a4b-it:v0",
+    "wandb_project": "foundation-models",
+    "wandb_host": "",
+    "model_local_path": "models/gemma",
+    "model_download_script": "tools/perf_test_runner/scripts/download_models.py",
+    "envs": {
+      "vllm_venv": "vllm/.venv",
+      "tools_venv": "tools/.venv"
+    }
+  },
+  "vllm": {
+    "model": "models/gemma",
+    "served_model_name": "gemma26b",
+    "host": "0.0.0.0",
+    "port": 8000,
+    "tensor_parallel_size": 4,
+    "gpu_memory_utilization": 0.5,
+    "max_model_len": "256K",
+    "dtype": "bfloat16",
+    "trust_remote_code": true,
+    "enable_prefix_caching": true,
+    "enable_frequency_eviction": false,
+    "enable_touch_frequency": false,
+    "block_size": 16,
+    "cuda_visible_devices": "0,1,2,3",
+    "vllm_server_dev_mode": true,
+    "commit": "",
+    "repo": "WAKMan",
+    "torch_cuda_arch_list": "12.0+PTX",
+    "extra_args": [
+      "--enable-prompt-tokens-details",
+      "--gpu-eviction-policy",
+      "lru"
+    ],
+    "env": {},
+    "install_script": "tools/perf_test_runner/scripts/setup_vllm.sh"
+  },
+  "aiperf": {
+    "input_file": "data/ablations/traces/num_services_s50_m50_a0/single_svc600.jsonl",
+    "custom_dataset_type": "multi_turn",
+    "endpoint_type": "chat",
+    "endpoint": "/v1/chat/completions",
+    "tokenizer": "models/gemma",
+    "streaming": true,
+    "fixed_schedule": true,
+    "artifact_dir": "experiments/LRU/ablations_num_services_s50_m50_a0_single_svc600/aiperf",
+    "slice_duration": 10,
+    "export_level": "raw",
+    "export_http_trace": true,
+    "url": "",
+    "extra_args": [
+      "--use-server-token-count"
+    ]
+  },
+  "wandb_log": {
+    "enabled": true,
+    "entity": "",
+    "project": "wakman",
+    "run_name": "",
+    "host": "",
+    "key": "***REDACTED***"
+  }
+}
