@@ -1,0 +1,33 @@
+{
+  "algos": [
+    "arc"
+  ],
+  "input_workloads": [
+    "turns_s0_m50_a50/multi_turn_turns2.jsonl",
+    "turns_s0_m50_a50/multi_turn_turns4.jsonl",
+    "turns_s0_m50_a50/multi_turn_turns8.jsonl",
+    "turns_s33_m33_a33/multi_turn_turns2.jsonl",
+    "turns_s33_m33_a33/multi_turn_turns4.jsonl",
+    "turns_s33_m33_a33/multi_turn_turns8.jsonl",
+    "turns_s50_m50_a0/multi_turn_turns2.jsonl",
+    "turns_s50_m50_a0/multi_turn_turns4.jsonl",
+    "turns_s50_m50_a0/multi_turn_turns8.jsonl"
+  ],
+  "base_config": "runner/base_perf_test_configs/a6000.yaml",
+  "data_dir": "data/ablations/traces",
+  "vol_name": "",
+  "wandb_key": "",
+  "commit": "",
+  "cuda_visible_devices": "0,1,2,3",
+  "name_prefix": "ablations",
+  "policy_extra_config": {
+    "dynamic": {
+      "start_policy": "lru",
+      "control_interval_min": 15,
+      "control_min_requests": 0,
+      "control_margin": 0.01,
+      "control_consecutive": 1
+    }
+  },
+  "publish": ""
+}
