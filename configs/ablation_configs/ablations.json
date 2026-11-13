@@ -1,0 +1,11 @@
+{
+  "algos": ["Dynamic", "Approx","2Q", "ARC", "S3FIFO", "LRU"],
+  "input_lengths": [128, 1024, 8192, 32768, 131072],
+  "output_lengths": [256, 768, 2048, 4096],
+  "num_services": [16, 100, 600, 3600, 21600],
+  "base_fractions_pair": [[50, 50]],
+  "base_fractions_all_three": [[33.33, 33.33, 33.34]],
+  "turns": [2, 4, 8],
+  "inter_turn_time": [60, 120, 480],
+  "capacity_size": [5000, 25000, 125000, 625000]
+}
