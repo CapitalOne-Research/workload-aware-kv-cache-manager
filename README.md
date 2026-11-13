@@ -70,7 +70,7 @@ Even with the request mix fixed, a single workload parameter (turns per conversa
   (`LRU/`, `S3FIFO/`, …).
 - **`runner/`** — the launch folder: run perf tests via `run_experiments.sh`
   (with JSON batch specs in `experiment_groups/` and `base_perf_test_configs/`).
-- ** `vllm/` ** -  custom vLLM eviction policies implementation.
+- **`vllm/`** -  custom vLLM eviction policies implementation.
 
 ---
 
